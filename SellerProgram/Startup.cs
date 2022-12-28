@@ -39,6 +39,7 @@ namespace SellerProgram
             services.AddDbContext<SellerProgramContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("SellerProgramContext"), 
                     builder => builder.MigrationsAssembly("SellerProgram")));
+            services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
