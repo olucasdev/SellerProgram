@@ -1,8 +1,54 @@
-﻿@{
-    ViewData["Title"] = "Index";
+﻿@model IEnumerable<SellerProgram.Models.Seller>
+
+@{
+    ViewData["Title"] = "Sellers";
 }
 
-<h2>Sellers</h2>
+<h2>@ViewData["Title"]</h2>
 
-<p>Sellers Index Page</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.BaseSalary)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+       {
+           <tr>
+               <td>
+                   @Html.DisplayFor(model => item.Name)
+               </td>
+               <td>
+                   @Html.DisplayFor(model => item.Email)
+               </td>
+               <td>
+                   @Html.DisplayFor(model => item.BirthDate)
+               </td>
+               <td>
+                   @Html.DisplayFor(model => item.BaseSalary)
+               </td>
+               <td>
+               <a asp-action="Edit" asp-rout-id="Item.Id">Edit</a>
+               <a asp-action="Details" asp-rout-id="Item.Id">Details</a>
+               <a asp-action="Delete" asp-rout-id="Item.Id">Delete</a>
+
+               </td>
+           </tr>
+       }
+
+    </tbody>
+</table>
+
 
